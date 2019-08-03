@@ -12,4 +12,4 @@ Keras performs LocallyConnected2D convolution with unshared convolution paramete
 * 将输出形状和维度进行转换，输出形状为`(batch, output_row, output_col, output_filters)`
 ## 使用
 * `from local import LocallyConnected2D`
-*`x = LocallyConnected2D(32, (3, 3), activation='relu')(x)`
+* `x = LocallyConnected2D(32, (3, 3), activation='relu')(x)`
