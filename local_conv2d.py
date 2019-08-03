@@ -1,3 +1,7 @@
+import tensorflow as tf
+import keras.backend as K
+
+
 def local_conv2d(inputs, kernel, kernel_size, strides, output_shape, data_format=None):
     data_format = normalize_data_format(data_format)
 
@@ -21,7 +25,7 @@ def local_conv2d(inputs, kernel, kernel_size, strides, output_shape, data_format
                      (output_row, output_col, -1, filters))
 
     if data_format == 'channels_first':
-        output = permute_dimensions(output, (2, 3, 0, 1))
+        output = tf.transpose(output, (2, 3, 0, 1))
     else:
-        output = permute_dimensions(output, (2, 0, 1, 3))
+        output = tf.transpose(output, (2, 0, 1, 3))
     return output
